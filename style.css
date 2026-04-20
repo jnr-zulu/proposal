@@ -1,0 +1,103 @@
+:root{
+	--bg1:#0b1026;
+	--bg2:#111b3f;
+	--card:#0f1633cc;
+	--text:#eaf0ff;
+	--muted:#b9c4e6;
+	--yes:#2ee59d;
+	--no:#ff4d6d;
+	--ring:#7aa8ff;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+	margin:0;
+	font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+	color:var(--text);
+	background:radial-gradient(1200px 700px at 20% 20%, #1b2b6e 0%, transparent 60%),
+				 radial-gradient(900px 600px at 80% 30%, #3a1f5c 0%, transparent 55%),
+				 linear-gradient(120deg,var(--bg1),var(--bg2));
+	overflow:hidden;
+}
+
+.bg{position:fixed; inset:0; pointer-events:none;}
+.orb{
+	position:absolute;
+	width:260px; height:260px;
+	border-radius:50%;
+	filter:blur(2px);
+	opacity:.55;
+	mix-blend-mode:screen;
+	animation:float 10s ease-in-out infinite;
+}
+.o1{left:8%; top:15%; background:radial-gradient(circle at 30% 30%, #6ae4ff, transparent 60%); animation-duration:12s;}
+.o2{left:65%; top:10%; background:radial-gradient(circle at 30% 30%, #ff6ad5, transparent 60%); animation-duration:14s;}
+.o3{left:45%; top:60%; background:radial-gradient(circle at 30% 30%, #9bff6a, transparent 60%); animation-duration:16s;}
+
+@keyframes float{
+	0%{transform:translate(0,0) scale(1)}
+	50%{transform:translate(30px,-20px) scale(1.08)}
+	100%{transform:translate(0,0) scale(1)}
+}
+
+.card{
+	position:relative;
+	max-width:760px;
+	margin:10vh auto;
+	padding:28px 26px;
+	background:var(--card);
+	border:1px solid #ffffff1c;
+	border-radius:18px;
+	backdrop-filter: blur(10px);
+	box-shadow: 0 20px 60px #00000066;
+}
+
+h1{margin:0 0 6px 0; letter-spacing:.2px}
+#subtitle{margin:0 0 18px 0; color:var(--muted)}
+
+.q{font-size:1.2rem; line-height:1.45; margin:14px 0 18px 0}
+
+.buttons{
+	position:relative;
+	display:flex;
+	gap:12px;
+	flex-wrap:wrap;
+	align-items:center;
+	min-height:52px;
+}
+
+.btn{
+	appearance:none;
+	border:0;
+	padding:12px 18px;
+	border-radius:12px;
+	font-size:1rem;
+	font-weight:650;
+	cursor:pointer;
+	transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+	outline:none;
+}
+.btn:focus{box-shadow:0 0 0 4px #7aa8ff55}
+.btn.yes{background:var(--yes); color:#081427}
+.btn.no{background:var(--no); color:white; position:relative;}
+.btn:hover{transform:translateY(-1px)}
+
+.final{margin-top:10px}
+.hidden{display:none}
+
+.footer{
+	margin-top:22px;
+	display:flex;
+	gap:18px;
+	flex-wrap:wrap;
+	color:var(--muted);
+	font-size:.92rem;
+}
+.toggle{display:flex; gap:10px; align-items:center}
+.small{color:var(--muted); font-size:.95rem}
+
+@media (max-width:520px){
+	.card{margin:6vh 14px}
+	.orb{width:200px;height:200px}
+}
