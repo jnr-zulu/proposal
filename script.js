@@ -80,14 +80,50 @@ function moveNoButton(){
 	const container = document.getElementById("buttons");
 	const rect = container.getBoundingClientRect();
 	const btnRect = noBtn.getBoundingClientRect();
+	const yesRect = yesBtn.getBoundingClientRect();
 
 	// allow movement within the button container
 	const maxX = rect.width - btnRect.width;
 	const maxY = rect.height - btnRect.height;
 
-	// pick a new random translate
-	const x = Math.random() * maxX;
-	const y = Math.random() * maxY;
+	// Keep the "No" button away from the "Yes" button so it doesn't interfere.
+	// We work in container-relative coordinates.
+	const yes = {
+		left: yesRect.left - rect.left,
+		top: yesRect.top - rect.top,
+		right: yesRect.right - rect.left,
+		bottom: yesRect.bottom - rect.top
+	};
+
+	const margin = 16; // minimum spacing between buttons
+	let x = 0;
+	let y = 0;
+
+	function overlaps(a, b, pad = 0){
+		return !(
+			a.right + pad < b.left ||
+			a.left - pad > b.right ||
+			a.bottom + pad < b.top ||
+			a.top - pad > b.bottom
+		);
+	}
+
+	// Try a few random positions until we find one that doesn't overlap "Yes".
+	for(let tries = 0; tries < 25; tries++){
+		const candidateX = Math.random() * maxX;
+		const candidateY = Math.random() * maxY;
+		const candidate = {
+			left: candidateX,
+			top: candidateY,
+			right: candidateX + btnRect.width,
+			bottom: candidateY + btnRect.height
+		};
+		if(!overlaps(candidate, yes, margin)){
+			x = candidateX;
+			y = candidateY;
+			break;
+		}
+	}
 
 	noBtn.style.position = "absolute";
 	noBtn.style.left = "0px";
