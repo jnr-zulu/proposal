@@ -44,6 +44,46 @@ const questions = [
 		text: "Can you see us building something real together?",
 	},
 	{
+		id: "values",
+		text: "Do you feel our values and life goals align in the long run?",
+	},
+	{
+		id: "emotional_safety",
+		text: "Do you feel emotionally safe with me — like you can be yourself without fear of judgement?",
+	},
+	{
+		id: "repair",
+		text: "If we hurt each other, do you believe we can repair things with honesty and accountability?",
+	},
+	{
+		id: "hard_days",
+		text: "On your difficult days, do you feel I bring you peace instead of pressure?",
+	},
+	{
+		id: "trust_actions",
+		text: "Do my actions match my words enough for you to trust me?",
+	},
+	{
+		id: "needs",
+		text: "Do you feel comfortable telling me what you need, even when it might disappoint me?",
+	},
+	{
+		id: "boundaries_respected",
+		text: "Do you feel your boundaries are respected — and that you can set new ones anytime?",
+	},
+	{
+		id: "conflict_style",
+		text: "Do you feel we can disagree without disrespect, silence, or manipulation?",
+	},
+	{
+		id: "support_growth",
+		text: "Do you feel I support your growth, friendships, and independence?",
+	},
+	{
+		id: "future_intentions",
+		text: "Do you feel clear about my intentions with you — and that they are sincere?",
+	},
+	{
 		id: "girlfriend",
 		text: "Will you be my girlfriend?",
 	}
