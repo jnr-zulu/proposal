@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Quick Questions</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<div class="bg">
+		<div class="orb o1"></div>
+		<div class="orb o2"></div>
+		<div class="orb o3"></div>
+	</div>
+
+	<main class="card" aria-live="polite">
+		<h1 id="title">Hey Kelebogile</h1>
+		<p id="subtitle">A few questions. Answer honestly.</p>
+
+		<section class="question">
+			<p class="q" id="qText"></p>
+			<div class="buttons" id="buttons">
+				<button id="yesBtn" class="btn yes" type="button">Yes</button>
+				<button id="noBtn" class="btn no" type="button">No</button>
+			</div>
+		</section>
+
+		<section id="final" class="final hidden">
+			<h2>Thank you</h2>
+			<p id="finalText"></p>
+			<div class="small">
+				<p><strong>Privacy note:</strong> This page can store answers locally on this device, or submit to a form if configured. It will never secretly send anything.</p>
+			</div>
+		</section>
+
+		<footer class="footer">
+			<label class="toggle">
+				<input id="dodgeToggle" type="checkbox" checked />
+				<span>Playful “No” button dodge</span>
+			</label>
+			<label class="toggle">
+				<input id="localSaveToggle" type="checkbox" />
+				<span>Save answers on this device (localStorage)</span>
+			</label>
+		</footer>
+	</main>
+
+	<script src="script.js"></script>
+</body>
+</html>
